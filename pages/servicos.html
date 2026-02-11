@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - ARTECH | Limpeza e Manutenção de Ar Condicionado</title>
+    <meta name="description" content="Serviços especializados em limpeza, manutenção e reparo de ar condicionado. Vídeos antes/depois mostram nossa qualidade.">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/servicos.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Swiper CSS (Carrossel) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+</head>
+<body>
+    <!-- HEADER (Mesmo de index.html) -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-fan"></i>
+                    ART<span>ECH</span>
+                </a>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="servicos.html" class="active">Serviços</a></li>
+                    <li><a href="saude.html">Saúde do Ar</a></li>
+                    <li><a href="economia.html">Economia</a></li>
+                    <li><a href="contato.html" class="btn btn-primary">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SERVIÇOS -->
+    <section class="services-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Serviços Especializados</h1>
+                <p class="lead">Limpeza, manutenção e reparo de ar condicionado com qualidade garantida</p>
+                <a href="#servicos" class="btn btn-primary btn-lg">
+                    <i class="fas fa-arrow-down"></i> Ver Serviços
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS DETALHADOS -->
+    <section class="services-details" id="servicos">
+        <div class="container">
+            <h2 class="section-title">Nossos Serviços</h2>
+            <p class="section-subtitle">Soluções completas para seu ar condicionado</p>
+            
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-broom"></i>
+                    </div>
+                    <h3>Limpeza Profissional</h3>
+                </div>
+                
+                <div class="service-items">
+                    <div class="service-item">
+                        <h4>Limpeza Completa Split</h4>
+                        <p>Remoção completa de sujeira, fungos e bactérias das unidades interna e externa.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Desmontagem das peças</li>
+                            <li><i class="fas fa-check"></i> Limpeza com produtos específicos</li>
+                            <li><i class="fas fa-check"></i> Higienização dos filtros</li>
+                            <li><i class="fas fa-check"></i> Teste de funcionamento</li>
+                        </ul>
+                        <div class="service-benefits">
+                            <span class="benefit"><i class="fas fa-wind"></i> Melhora o fluxo de ar</span>
+                            <span class="benefit"><i class="fas fa-bacteria"></i> Elimina 99% das bactérias</span>
+                            <span class="benefit"><i class="fas fa-leaf"></i> Reduz consumo em 25%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <h4>Limpeza de Dutos</h4>
+                        <p>Limpeza especializada para sistemas centrais de ar condicionado.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Inspeção com câmera</li>
+                            <li><i class="fas fa-check"></i> Remoção de poeira e contaminantes</li>
+                            <li><i class="fas fa-check"></i> Sanitização com nebulizador</li>
+                        </ul>
+                        <div class="service-benefits">
+                            <span class="benefit"><i class="fas fa-lungs"></i> Qualidade do ar superior</span>
+                            <span class="benefit"><i class="fas fa-allergies"></i> Redução de alergias</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Manutenção Preventiva</h3>
+                </div>
+                
+                <div class="service-items">
+                    <div class="service-item">
+                        <h4>Manutenção Anual</h4>
+                        <p>Pacote completo para garantir o funcionamento perfeito do seu ar condicionado.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Verificação de gás refrigerante</li>
+                            <li><i class="fas fa-check"></i> Limpeza de condensador</li>
+                            <li><i class="fas fa-check"></i> Lubrificação de motores</li>
+                            <li><i class="fas fa-check"></i> Calibração de termostato</li>
+                        </ul>
+                        <div class="service-benefits">
+                            <span class="benefit"><i class="fas fa-clock"></i> Aumenta vida útil em 40%</span>
+                            <span class="benefit"><i class="fas fa-bolt"></i> Otimiza consumo energético</span>
+                            <span class="benefit"><i class="fas fa-shield-alt"></i> Previne quebras inesperadas</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <h4>Manutenção Pós-Inverno</h4>
+                        <p>Preparação especial para o verão após período de inatividade.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Verificação completa do sistema</li>
+                            <li><i class="fas fa-check"></i> Troca de filtros</li>
+                            <li><i class="fas fa-check"></i> Teste de pressão</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-category">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h3>Reparos e Instalações</h3>
+                </div>
+                
+                <div class="service-items">
+                    <div class="service-item">
+                        <h4>Reparo de Compressores</h4>
+                        <p>Diagnóstico e reparo de problemas no coração do ar condicionado.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Diagnóstico computadorizado</li>
+                            <li><i class="fas fa-check"></i> Reparo ou substituição</li>
+                            <li><i class="fas fa-check"></i> Garantia de 6 meses</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-item">
+                        <h4>Instalação de Novos Equipamentos</h4>
+                        <p>Instalação profissional com garantia de funcionamento.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Análise do ambiente</li>
+                            <li><i class="fas fa-check"></i> Dimensionamento correto (BTUs)</li>
+                            <li><i class="fas fa-check"></i> Instalação elétrica segura</li>
+                            <li><i class="fas fa-check"></i> Teste final e orientações</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-item">
+                        <h4>Troca de Peças</h4>
+                        <p>Substituição de componentes com peças originais ou equivalentes.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Ventiladores e motores</li>
+                            <li><i class="fas fa-check"></i> Placas eletrônicas</li>
+                            <li><i class="fas fa-check"></i> Sensores e termostatos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARROSSEL DE VÍDEOS ANTES/DEPOIS -->
+    <section class="video-carousel-section">
+        <div class="container">
+            <h2 class="section-title">Transformação Real</h2>
+            <p class="section-subtitle">Veja a diferença que nossa limpeza faz</p>
+            
+            <div class="video-carousel-container">
+                <div class="swiper videoSwiper">
+                    <div class="swiper-wrapper">
+                        <!-- Vídeo 1 -->
+                        <div class="swiper-slide">
+                            <div class="video-card">
+                                <div class="video-header">
+                                    <span class="video-badge">Antes</span>
+                                    <span class="video-badge after">Depois</span>
+                                </div>
+                                <div class="video-comparison">
+                                    <div class="video-side before">
+                                        <div class="video-placeholder">
+                                            <i class="fas fa-play"></i>
+                                            <p>Filtro Sujo</p>
+                                        </div>
+                                    </div>
+                                    <div class="video-side after">
+                                        <div class="video-placeholder">
+                                            <i class="fas fa-play"></i>
+                                            <p>Filtro Limpo</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <h4>Limpeza de Filtro</h4>
+                                    <p>Filtro completamente entupido após 2 anos sem limpeza</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Vídeo 2 -->
+                        <div class="swiper-slide">
+                            <div class="video-card">
+                                <div class="video-header">
+                                    <span class="video-badge">Antes</span>
+                                    <span class="video-badge after">Depois</span>
+                                </div>
+                                <div class="video-comparison">
+                                    <div class="video-side before">
+                                        <div class="video-placeholder">
+                                            <i class="fas fa-play"></i>
+                                            <p>Evaporador Sujo</p>
+                                        </div>
+                                    </div>
+                                    <div class="video-side after">
+                                        <div class="video-placeholder">
+                                            <i class="fas fa-play"></i>
+                                            <p>Evaporador Limpo</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <h4>Limpeza Interna</h4>
+                                    <p>Acúmulo de poeira e fungos na serpentina interna</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Vídeo 3 -->
+                        <div class="swiper-slide">
+                            <div class="video-card">
+                                <div class="video-header">
+                                    <span class="video-badge">Antes</span>
+                                    <span class="video-badge after">Depois</span>
+                                </div>
+                                <div class="video-comparison">
+                                    <div class="video-side before">
+                                        <div class="video-placeholder">
+                                            <i class="fas fa-play"></i>
+                                            <p>Condensador Obstruído</p>
+                                        </div>
+                                    </div>
+                                    <div class="video-side after">
+                                        <div class="video-placeholder">
+                                            <i class="fas fa-play"></i>
+                                            <p>Condensador Limpo</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <h4>Limpeza Externa</h4>
+                                    <p>Unidade externa com folhas e sujeira impedindo ventilação</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Vídeo 4 -->
+                        <div class="swiper-slide">
+                            <div class="video-card">
+                                <div class="video-header">
+                                    <span class="video-badge">Antes</span>
+                                    <span class="video-badge after">Depois</span>
+                                </div>
+                                <div class="video-comparison">
+                                    <div class="video-side before">
+                                        <div class="video-placeholder">
+                                            <i class="fas fa-play"></i>
+                                            <p>Duto Sujo</p>
+                                        </div>
+                                    </div>
+                                    <div class="video-side after">
+                                        <div class="video-placeholder">
+                                            <i class="fas fa-play"></i>
+                                            <p>Duto Limpo</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <h4>Limpeza de Dutos</h4>
+                                    <p>Sistema central com acúmulo de poeira e contaminantes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation buttons -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+                
+                <div class="video-controls">
+                    <button class="video-btn play-all">
+                        <i class="fas fa-play-circle"></i> Ver Todos os Vídeos
+                    </button>
+                    <a href="https://youtube.com/@artech" target="_blank" class="video-btn youtube">
+                        <i class="fab fa-youtube"></i> Canal no YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESSO DE TRABALHO -->
+    <section class="work-process">
+        <div class="container">
+            <h2 class="section-title">Como Funciona</h2>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Agendamento</h3>
+                    <p>Ligue ou agende online. Atendimento rápido.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Diagnóstico</h3>
+                    <p>Análise completa do equipamento e orçamento.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Execução</h3>
+                    <p>Serviço executado por técnicos especializados.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3>Teste Final</h3>
+                    <p>Verificação de funcionamento e garantia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SERVIÇOS -->
+    <section class="services-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Pronto para ter um ar condicionado como novo?</h2>
+                <p>Agende agora uma avaliação gratuita</p>
+                
+                <div class="cta-buttons">
+                    <a href="agendamento.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-calendar-alt"></i> Agendar Serviço
+                    </a>
+                    <a href="https://wa.me/5511999999999" class="btn btn-secondary btn-lg" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+                
+                <div class="cta-info">
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Atendimento 24h para emergências</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Garantia em todos os serviços</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-tools"></i>
+                        <span>Equipamentos profissionais</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (Mesmo de index.html) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3><i class="fas fa-fan"></i> ART<span>ECH</span></h3>
+                    <p>Especialistas em eficiência energética e manutenção de ar condicionado há mais de 10 anos.</p>
+                    <p class="tagline">artehenergia - Eficiência que transforma</p>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-phone"></i> (11) 99999-9999</p>
+                    <p><i class="fas fa-envelope"></i> contato@artech.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> São Paulo, SP</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="saude.html">Saúde do Ar</a></li>
+                        <li><a href="economia.html">Calculadora de Economia</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Siga-nos</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 ARTECH. Todos os direitos reservados.</p>
+                <p><a href="politica.html">Política de Privacidade</a> | <a href="termos.html">Termos de Uso</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Nossos scripts -->
+    <script src="/js/global.js"></script>
+    <script src="/js/servicos.js"></script>
+</body>
+</html>

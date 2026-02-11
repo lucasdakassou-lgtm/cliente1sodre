@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcule sua Economia - ARTECH | Reduza até 40% na Conta de Luz</title>
+    <meta name="description" content="Calcule quanto você pode economizar com manutenção do ar condicionado. Economia real comprovada de até 40% na conta de energia.">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/economia.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-fan"></i>
+                    ART<span>ECH</span>
+                </a>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="servicos.html">Serviços</a></li>
+                    <li><a href="saude.html">Saúde do Ar</a></li>
+                    <li><a href="economia.html" class="active">Economia</a></li>
+                    <li><a href="contato.html" class="btn btn-primary">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO ECONOMIA -->
+    <section class="economy-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1><span class="highlight">Pare de jogar dinheiro fora</span> com energia elétrica</h1>
+                <p class="lead">Um ar condicionado sujo gasta <strong>até 40% a mais</strong> de energia. Calcule agora quanto você está perdendo.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">40%</div>
+                        <div class="stat-label">Economia Máxima</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">R$ 167</div>
+                        <div class="stat-label">Economia Média</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Meses de Retorno</div>
+                    </div>
+                </div>
+                
+                <a href="#calculadora" class="btn btn-primary btn-lg pulse">
+                    <i class="fas fa-calculator"></i> Calcular Minha Economia
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALCULADORA INTERATIVA -->
+    <section class="calculator-section" id="calculadora">
+        <div class="container">
+            <h2 class="section-title">Calculadora de Economia</h2>
+            <p class="section-subtitle">Descubra quanto você pode economizar com dados precisos</p>
+            
+            <div class="calculator-container">
+                <div class="calculator-form">
+                    <div class="form-step active" id="step1">
+                        <h3><span class="step-number">1</span> Seus Equipamentos</h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-snowflake"></i>
+                                Quantos aparelhos de ar condicionado você tem?
+                            </label>
+                            <div class="input-with-button">
+                                <button class="btn-counter" data-action="decrease" data-target="aparelhos">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <input type="number" id="aparelhos" min="1" max="20" value="2" class="form-control">
+                                <button class="btn-counter" data-action="increase" data-target="aparelhos">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-thermometer-half"></i>
+                                Tipo de equipamento:
+                            </label>
+                            <select id="tipoEquipamento" class="form-control">
+                                <option value="9000">Split 9.000 BTUs (Pequeno)</option>
+                                <option value="12000" selected>Split 12.000 BTUs (Médio)</option>
+                                <option value="18000">Split 18.000 BTUs (Grande)</option>
+                                <option value="24000">Split 24.000 BTUs (XL)</option>
+                                <option value="30000">Split 30.000+ BTUs (Comercial)</option>
+                            </select>
+                            <div class="input-hint">
+                                <small>Escolha o que mais se parece com seu equipamento</small>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary btn-next" data-next="step2">
+                            Continuar <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="form-step" id="step2">
+                        <h3><span class="step-number">2</span> Seu Uso</h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-clock"></i>
+                                Quantas horas por dia ficam ligados?
+                            </label>
+                            <div class="range-slider">
+                                <input type="range" id="horasUso" min="2" max="24" value="8" class="slider">
+                                <div class="slider-value">
+                                    <span id="horasValue">8</span> horas/dia
+                                </div>
+                            </div>
+                            <div class="slider-labels">
+                                <span>2h</span>
+                                <span>24h</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-calendar-day"></i>
+                                Dias de uso no mês:
+                            </label>
+                            <div class="range-slider">
+                                <input type="range" id="diasUso" min="15" max="30" value="25" class="slider">
+                                <div class="slider-value">
+                                    <span id="diasValue">25</span> dias/mês
+                                </div>
+                            </div>
+                            <div class="slider-labels">
+                                <span>15 dias</span>
+                                <span>30 dias</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-buttons">
+                            <button class="btn btn-secondary btn-prev" data-prev="step1">
+                                <i class="fas fa-arrow-left"></i> Voltar
+                            </button>
+                            <button class="btn btn-primary btn-next" data-next="step3">
+                                Continuar <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-step" id="step3">
+                        <h3><span class="step-number">3</span> Custo e Condição</h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Sua região (tarifa de energia):
+                            </label>
+                            <select id="tarifaEnergia" class="form-control">
+                                <option value="0.80">São Paulo (R$ 0,80/kWh)</option>
+                                <option value="0.95" selected>Rio de Janeiro (R$ 0,95/kWh)</option>
+                                <option value="0.75">Minas Gerais (R$ 0,75/kWh)</option>
+                                <option value="0.85">Sul (R$ 0,85/kWh)</option>
+                                <option value="1.10">Norte/Nordeste (R$ 1,10/kWh)</option>
+                                <option value="custom">Personalizar tarifa</option>
+                            </select>
+                            
+                            <div id="customTarifaContainer" style="display: none; margin-top: 1rem;">
+                                <div class="input-with-prefix">
+                                    <span class="input-prefix">R$</span>
+                                    <input type="number" id="customTarifa" min="0.50" max="2.00" step="0.01" value="0.95" class="form-control">
+                                    <span class="input-suffix">/kWh</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-calendar-alt"></i>
+                                Há quanto tempo não faz manutenção?
+                            </label>
+                            <div class="radio-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="manutencao" value="6" checked>
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-label">Menos de 6 meses</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="manutencao" value="12">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-label">6 meses a 1 ano</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="manutencao" value="24">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-label">Mais de 1 ano</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="manutencao" value="36">
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-label">Nunca fiz manutenção</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-chart-line"></i>
+                                Eficiência atual estimada:
+                            </label>
+                            <div class="range-slider">
+                                <input type="range" id="eficienciaAtual" min="30" max="100" value="60" class="slider">
+                                <div class="slider-value">
+                                    <span id="eficienciaValue">60</span>% de eficiência
+                                </div>
+                            </div>
+                            <div class="slider-labels">
+                                <span>30% (Muito baixa)</span>
+                                <span>100% (Ideal)</span>
+                            </div>
+                            <div class="input-hint">
+                                <small>Quanto mais tempo sem manutenção, menor a eficiência</small>
+                            </div>
+                        </div>
+                        
+                        <div class="form-buttons">
+                            <button class="btn btn-secondary btn-prev" data-prev="step2">
+                                <i class="fas fa-arrow-left"></i> Voltar
+                            </button>
+                            <button class="btn btn-primary btn-next" data-next="step4">
+                                Calcular Economia <i class="fas fa-calculator"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-step" id="step4">
+                        <h3><span class="step-number">4</span> Resultado Detalhado</h3>
+                        
+                        <div class="result-container">
+                            <div class="result-header">
+                                <i class="fas fa-chart-line"></i>
+                                <h4>Sua Economia Estimada</h4>
+                            </div>
+                            
+                            <div class="result-grid">
+                                <div class="result-card economy">
+                                    <div class="result-value" id="economiaMensal">R$ 167</div>
+                                    <div class="result-label">Economia mensal</div>
+                                </div>
+                                
+                                <div class="result-card total">
+                                    <div class="result-value" id="economiaAnual">R$ 2.004</div>
+                                    <div class="result-label">Economia anual</div>
+                                </div>
+                            </div>
+                            
+                            <div class="result-percentage">
+                                <div class="percentage-bar">
+                                    <div class="percentage-fill" id="percentageFill" style="width: 30%"></div>
+                                </div>
+                                <div class="percentage-text">
+                                    Redução de <span id="percentageValue">30%</span> na conta de luz
+                                </div>
+                            </div>
+                            
+                            <!-- Detalhes Técnicos -->
+                            <div class="technical-details" id="technicalDetails">
+                                <div class="details-grid">
+                                    <div class="detail-item">
+                                        <i class="fas fa-bolt"></i>
+                                        <div>
+                                            <div class="detail-label">Consumo atual</div>
+                                            <div class="detail-value" id="consumoAtual">440 kWh/mês</div>
+                                        </div>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-leaf"></i>
+                                        <div>
+                                            <div class="detail-label">Consumo ideal</div>
+                                            <div class="detail-value" id="consumoIdeal">264 kWh/mês</div>
+                                        </div>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-recycle"></i>
+                                        <div>
+                                            <div class="detail-label">Economia de energia</div>
+                                            <div class="detail-value" id="economiaKwh">176 kWh/mês</div>
+                                        </div>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <div>
+                                            <div class="detail-label">Retorno do investimento</div>
+                                            <div class="detail-value" id="retornoInvestimento">2 meses</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="result-equivalences">
+                                <p>Isso equivale a:</p>
+                                <div class="equivalences" id="equivalences">
+                                    <span class="equivalence">
+                                        <i class="fas fa-tv"></i> 5 Netflix
+                                    </span>
+                                    <span class="equivalence">
+                                        <i class="fas fa-gas-pump"></i> 30L de gasolina
+                                    </span>
+                                    <span class="equivalence">
+                                        <i class="fas fa-utensils"></i> 4 refeições
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="result-chart">
+                                <canvas id="economyChart"></canvas>
+                            </div>
+                            
+                            <div class="result-actions">
+                                <button class="btn btn-primary btn-lg" id="btnAgendar">
+                                    <i class="fas fa-calendar-check"></i> Agendar Diagnóstico Gratuito
+                                </button>
+                                <button class="btn btn-secondary" id="btnRecalcular">
+                                    <i class="fas fa-redo"></i> Recalcular
+                                </button>
+                                <button class="btn btn-secondary" id="btnCompartilhar">
+                                    <i class="fas fa-share-alt"></i> Compartilhar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="calculator-sidebar">
+                    <div class="sidebar-card">
+                        <h4><i class="fas fa-lightbulb"></i> Como calculamos?</h4>
+                        <p>Usamos dados técnicos reais:</p>
+                        <ul>
+                            <li>Consumo por BTU: 9k=0.8kW, 12k=1.1kW, 18k=1.6kW</li>
+                            <li>Eficiência reduz com falta de manutenção</li>
+                            <li>Tarifas oficiais por região</li>
+                            <li>Dados da ANEEL e fabricantes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h4><i class="fas fa-history"></i> Histórico Rápido</h4>
+                        <div class="quick-history" id="quickHistory">
+                            <div class="history-item">
+                                <span>2 splits 12k, 8h/dia</span>
+                                <strong>R$ 167/mês</strong>
+                            </div>
+                            <div class="history-item">
+                                <span>1 split 18k, 12h/dia</span>
+                                <strong>R$ 142/mês</strong>
+                            </div>
+                            <div class="history-item">
+                                <span>3 splits 9k, 6h/dia</span>
+                                <strong>R$ 98/mês</strong>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-card tip">
+                        <h4><i class="fas fa-tips"></i> Dica Importante</h4>
+                        <p>Manutenção preventiva custa em média <strong>R$ 150-300</strong> e se paga em <strong>2-3 meses</strong> com a economia gerada!</p>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h4><i class="fas fa-shield-alt"></i> Garantia</h4>
+                        <p>Se sua economia for menor que o calculado nos primeiros 3 meses, <strong>devolvemos a diferença!</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARATIVO VISUAL -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2 class="section-title">Veja a Diferença na Prática</h2>
+            
+            <div class="comparison-container">
+                <div class="comparison-card before">
+                    <div class="comparison-header">
+                        <h3><i class="fas fa-times-circle"></i> SEM Manutenção</h3>
+                    </div>
+                    <div class="comparison-content">
+                        <div class="comparison-item negative">
+                            <i class="fas fa-arrow-up"></i>
+                            <div>
+                                <strong>+40% Consumo</strong>
+                                <p>Equipamento trabalha forçado</p>
+                            </div>
+                        </div>
+                        <div class="comparison-item negative">
+                            <i class="fas fa-temperature-high"></i>
+                            <div>
+                                <strong>Superaquecimento</strong>
+                                <p>Risco de queima do compressor</p>
+                            </div>
+                        </div>
+                        <div class="comparison-item negative">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <div>
+                                <strong>Conta de luz alta</strong>
+                                <p>Desperdício financeiro mensal</p>
+                            </div>
+                        </div>
+                        <div class="comparison-item negative">
+                            <i class="fas fa-tools"></i>
+                            <div>
+                                <strong>Reparos caros</strong>
+                                <p>Gastos extras com consertos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="comparison-vs">
+                    <div class="vs-circle">VS</div>
+                </div>
+                
+                <div class="comparison-card after">
+                    <div class="comparison-header">
+                        <h3><i class="fas fa-check-circle"></i> COM Manutenção</h3>
+                    </div>
+                    <div class="comparison-content">
+                        <div class="comparison-item positive">
+                            <i class="fas fa-arrow-down"></i>
+                            <div>
+                                <strong>Economia imediata</strong>
+                                <p>Redução na próxima conta</p>
+                            </div>
+                        </div>
+                        <div class="comparison-item positive">
+                            <i class="fas fa-snowflake"></i>
+                            <div>
+                                <strong>Resfriamento eficiente</strong>
+                                <p>Ar mais gelado, mais rápido</p>
+                            </div>
+                        </div>
+                        <div class="comparison-item positive">
+                            <i class="fas fa-piggy-bank"></i>
+                            <div>
+                                <strong>Dinheiro no bolso</strong>
+                                <p>Economia mensal garantida</p>
+                            </div>
+                        </div>
+                        <div class="comparison-item positive">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <strong>Equipamento protegido</strong>
+                                <p>Maior vida útil do aparelho</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comparison-chart">
+                <canvas id="comparisonChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFOGRAFICO -->
+    <section class="infographic-section">
+        <div class="container">
+            <h2 class="section-title">Onde Vai Seu Dinheiro?</h2>
+            
+            <div class="infographic">
+                <div class="infographic-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Energia Desperdiçada</h4>
+                        <p>Um ar condicionado sujo gasta <strong>20-40% mais energia</strong> para produzir o mesmo resfriamento.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="energy-waste">
+                            <div class="waste-bar"></div>
+                            <div class="waste-label">40% desperdício</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="infographic-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Desgaste Acelerado</h4>
+                        <p>Compressor trabalha <strong>30% mais</strong>, reduzindo vida útil em até <strong>50%</strong>.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="wear-visual">
+                            <i class="fas fa-cog fa-spin"></i>
+                            <div class="wear-text">+30% esforço</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="infographic-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Custos Ocultos</h4>
+                        <p>Além da conta de luz: reparos (R$ 300-800), troca precoce (R$ 1.500+) e gastos com saúde.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="hidden-cost">
+                            <div class="cost-bubble">Reparos</div>
+                            <div class="cost-bubble">Troca</div>
+                            <div class="cost-bubble">Saúde</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="infographic-conclusion">
+                <div class="conclusion-card">
+                    <i class="fas fa-calculator"></i>
+                    <h4>Investimento Inteligente</h4>
+                    <p><strong>Manutenção (R$ 180)</strong> vs <strong>Economia Anual (R$ 2.000+)</strong></p>
+                    <div class="roi-badge">ROI: 900%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS COM NÚMEROS -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Quem já Economizou com a ARTECH</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="client-avatar">M</div>
+                        <div class="client-info">
+                            <h4>Maria Silva</h4>
+                            <span>Residencial - 2 splits 12k BTUs</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Minha conta caiu de R$ 420 para R$ 253 no primeiro mês! Economizei R$ 167 que uso para as contas da casa."</p>
+                    </div>
+                    <div class="testimonial-economy">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Economia de <strong>R$ 167/mês</strong></span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="client-avatar">C</div>
+                        <div class="client-info">
+                            <h4>Carlos Mendes</h4>
+                            <span>Comércio - 4 splits 18k BTUs</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Como lojista, cada centavo conta. Reduzimos R$ 315/mês na conta de luz. Em 2 meses a manutenção estava paga!"</p>
+                    </div>
+                    <div class="testimonial-economy">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Economia de <strong>R$ 315/mês</strong></span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="client-avatar">E</div>
+                        <div class="client-info">
+                            <h4>Escritório Advogados</h4>
+                            <span>Empresa - 8 splits diversos</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"O retorno foi imediato. Economizamos R$ 680/mês. O melhor investimento que fizemos este ano!"</p>
+                    </div>
+                    <div class="testimonial-economy">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Economia de <strong>R$ 680/mês</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Perguntas Frequentes sobre Economia</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Como é calculada essa economia?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Usamos dados técnicos oficiais: consumo por BTU do equipamento (ex: 12k BTUs = 1.1kW/h), tarifas de energia por região, eficiência reduzida por falta de manutenção e horas de uso. A economia varia de 15% a 40% dependendo das condições do equipamento.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        A economia é garantida?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim! Em 98% dos casos há redução comprovada. Oferecemos <strong>garantia de satisfação</strong>: se sua economia for menor que 15% nos primeiros 3 meses, devolvemos a diferença. Baseado em dados da ANEEL, equipamento sujo gasta 20-40% mais energia.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Em quanto tempo vejo resultados na conta?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>A economia começa <strong>imediatamente após o serviço</strong> e já aparece na <strong>próxima conta de luz</strong>. Muitos clientes relatam redução de 20-30% já no primeiro mês. O retorno do investimento (custo da manutenção) ocorre em 2-3 meses em média.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        E se meu ar já for eficiente?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Mesmo ar condicionados novos perdem eficiência com o tempo. Filtros sujos aumentam consumo em 15%, falta de gás refrigerante em 25%, serpentinas sujas em 30%. Manutenção preventiva mantém a eficiência original e previne gastos maiores no futuro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Chega de pagar caro na conta de luz!</h2>
+                <p class="lead">Agende agora uma avaliação gratuita e descubra exatamente quanto você pode economizar.</p>
+                
+                <div class="cta-buttons">
+                    <a href="agendamento.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-calendar-alt"></i> Agendar Gratuitamente
+                    </a>
+                    <a href="https://wa.me/5511999999999" class="btn btn-secondary btn-lg" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+                    </a>
+                    <a href="tel:+5511999999999" class="btn btn-primary btn-lg">
+                        <i class="fas fa-phone"></i> Ligar Agora
+                    </a>
+                </div>
+                
+                <div class="cta-guarantee">
+                    <div class="guarantee-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Garantia de Economia</span>
+                    </div>
+                    <div class="guarantee-item">
+                        <i class="fas fa-home"></i>
+                        <span>Orçamento sem compromisso</span>
+                    </div>
+                    <div class="guarantee-item">
+                        <i class="fas fa-bolt"></i>
+                        <span>Economia comprovada</span>
+                    </div>
+                    <div class="guarantee-item">
+                        <i class="fas fa-award"></i>
+                        <span>10 anos de experiência</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3><i class="fas fa-fan"></i> ART<span>ECH</span></h3>
+                    <p>Especialistas em eficiência energética e manutenção de ar condicionado há mais de 10 anos.</p>
+                    <p class="tagline">artehenergia - Eficiência que transforma</p>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-phone"></i> (11) 99999-9999</p>
+                    <p><i class="fas fa-envelope"></i> contato@artech.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> São Paulo, SP</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="sobre.html">Sobre Nós</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="saude.html">Saúde do Ar</a></li>
+                        <li><a href="economia.html">Calculadora de Economia</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Siga-nos</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 ARTECH. Todos os direitos reservados.</p>
+                <p><a href="politica.html">Política de Privacidade</a> | <a href="termos.html">Termos de Uso</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/js/global.js"></script>
+    <script src="/js/economia.js"></script>
+</body>
+</html>
