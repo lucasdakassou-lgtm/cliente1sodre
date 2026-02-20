@@ -46,34 +46,54 @@
         </div>
     </header>
 
-    <!-- HERO ECONOMIA -->
-    <section class="economy-hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1><span class="highlight">Pare de jogar dinheiro fora</span> com energia elétrica</h1>
-                <p class="lead">Um ar condicionado sujo gasta <strong>até 40% a mais</strong> de energia. Calcule agora quanto você está perdendo.</p>
-                
-                <div class="hero-stats">
-                    <div class="stat">
-                        <div class="stat-number">40%</div>
-                        <div class="stat-label">Economia Máxima</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">R$ 167</div>
-                        <div class="stat-label">Economia Média</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">2</div>
-                        <div class="stat-label">Meses de Retorno</div>
-                    </div>
+  <!-- HERO ECONOMIA - CORES DA LOGO -->
+<section class="economy-hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>
+                <span class="gradient-text">Pare de jogar dinheiro fora</span> 
+                com energia elétrica
+            </h1>
+            <p class="lead">Um ar condicionado sujo gasta <strong class="gradient-text">até 40% a mais</strong> de energia.</p>
+            
+            <div class="hero-stats">
+                <div class="stat" style="border-left: 4px solid #0066CC;">
+                    <div class="stat-number" style="color: #0066CC;">40%</div>
+                    <div class="stat-label">Economia Máxima</div>
                 </div>
-                
-                <a href="#calculadora" class="btn btn-primary btn-lg pulse">
-                    <i class="fas fa-calculator"></i> Calcular Minha Economia
-                </a>
+                <div class="stat" style="border-left: 4px solid #00CC99;">
+                    <div class="stat-number" style="color: #00CC99;">R$ 167</div>
+                    <div class="stat-label">Economia Média</div>
+                </div>
+                <div class="stat" style="border-left: 4px solid #0066CC;">
+                    <div class="stat-number" style="color: #0066CC;">2</div>
+                    <div class="stat-label">Meses de Retorno</div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- RESULTADO - CORES AJUSTADAS -->
+<div class="result-card economy" style="border-color: #0066CC;">
+    <div class="result-value" id="economiaMensal" style="color: #0066CC;">R$ 167</div>
+    <div class="result-label">Economia mensal</div>
+</div>
+
+<div class="result-card total" style="border-color: #00CC99;">
+    <div class="result-value" id="economiaAnual" style="color: #00CC99;">R$ 2.004</div>
+    <div class="result-label">Economia anual</div>
+</div>
+
+<!-- BARRA DE PORCENTAGEM COM GRADIENTE -->
+<div class="percentage-bar">
+    <div class="percentage-fill" id="percentageFill" style="background: linear-gradient(90deg, #0066CC, #00CC99); width: 30%"></div>
+</div>
+
+<!-- BOTÃO PRINCIPAL COM GRADIENTE DA LOGO -->
+<button class="btn btn-primary btn-lg" id="btnAgendar" style="background: linear-gradient(135deg, #0066CC, #00CC99);">
+    <i class="fas fa-calendar-check"></i> Agendar Diagnóstico Gratuito
+</button>
 
     <!-- CALCULADORA INTERATIVA -->
     <section class="calculator-section" id="calculadora">
