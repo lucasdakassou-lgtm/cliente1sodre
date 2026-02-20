@@ -439,121 +439,165 @@ document.addEventListener('DOMContentLoaded', function() {
         createComparisonChart();
     }
     
-    function createEconomyChart() {
-        const ctx = document.getElementById('economyChart')?.getContext('2d');
-        if (!ctx) return;
-        
-        economyChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Consumo Atual', 'Consumo Ideal'],
-                datasets: [{
-                    data: [100, 70],
-                    backgroundColor: [
-                        'rgba(255, 107, 53, 0.8)',
-                        'rgba(0, 204, 153, 0.8)'
-                    ],
-                    borderColor: [
-                        'rgb(255, 107, 53)',
-                        'rgb(0, 204, 153)'
-                    ],
-                    borderWidth: 2,
-                    borderRadius: 8,
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                return `${context.label}: ${context.raw}% do consumo`;
-                            }
+   // js/economia.js - PARTE DOS GRÁFICOS ATUALIZADA
+
+// ========== GRÁFICOS COM CORES DA LOGO ==========
+function createEconomyChart() {
+    const ctx = document.getElementById('economyChart')?.getContext('2d');
+    if (!ctx) return;
+    
+    economyChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Consumo Atual', 'Consumo Ideal'],
+            datasets: [{
+                data: [100, 70],
+                backgroundColor: [
+                    '#0066CC',  // Azul da logo
+                    '#00CC99'   // Verde da logo
+                ],
+                borderColor: [
+                    '#0052A3',  // Azul escuro
+                    '#009977'   // Verde escuro
+                ],
+                borderWidth: 2,
+                borderRadius: 8,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `${context.label}: ${context.raw}% do consumo`;
                         }
                     }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 100,
-                        ticks: { callback: value => value + '%' }
-                    }
                 }
-            }
-        });
-    }
-    
-    function createComparisonChart() {
-        const ctx = document.getElementById('comparisonChart')?.getContext('2d');
-        if (!ctx) return;
-        
-        comparisonChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-                datasets: [
-                    {
-                        label: 'Sem Manutenção',
-                        data: [400, 420, 440, 460, 480, 500, 520, 540, 560, 580, 600, 620],
-                        borderColor: 'rgb(255, 107, 53)',
-                        backgroundColor: 'rgba(255, 107, 53, 0.1)',
-                        borderWidth: 3,
-                        fill: true,
-                        tension: 0.4
-                    },
-                    {
-                        label: 'Com Manutenção',
-                        data: [400, 420, 380, 350, 320, 300, 280, 270, 260, 250, 240, 230],
-                        borderColor: 'rgb(0, 204, 153)',
-                        backgroundColor: 'rgba(0, 204, 153, 0.1)',
-                        borderWidth: 3,
-                        fill: true,
-                        tension: 0.4
-                    }
-                ]
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { position: 'top' }
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: { 
+                        callback: value => value + '%',
+                        color: '#6C757D'
+                    },
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.05)'
+                    }
                 },
-                scales: {
-                    y: {
-                        beginAtZero: false,
-                        ticks: { callback: value => 'R$ ' + value }
+                x: {
+                    ticks: {
+                        color: '#6C757D'
                     }
                 }
             }
-        });
+        }
+    });
+}
+
+function createComparisonChart() {
+    const ctx = document.getElementById('comparisonChart')?.getContext('2d');
+    if (!ctx) return;
+    
+    comparisonChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+            datasets: [
+                {
+                    label: 'Sem Manutenção',
+                    data: [400, 420, 440, 460, 480, 500, 520, 540, 560, 580, 600, 620],
+                    borderColor: '#0066CC',  // Azul da logo
+                    backgroundColor: 'rgba(0, 102, 204, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4
+                },
+                {
+                    label: 'Com Manutenção',
+                    data: [400, 420, 380, 350, 320, 300, 280, 270, 260, 250, 240, 230],
+                    borderColor: '#00CC99',  // Verde da logo
+                    backgroundColor: 'rgba(0, 204, 153, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { 
+                    position: 'top',
+                    labels: {
+                        usePointStyle: true,
+                        color: '#6C757D'
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    ticks: { 
+                        callback: value => 'R$ ' + value,
+                        color: '#6C757D'
+                    },
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.05)'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#6C757D'
+                    }
+                }
+            }
+        }
+    });
+}
+
+// ========== ATUALIZAR GRÁFICOS COM AS CORES ==========
+function updateCharts() {
+    if (economyChart) {
+        // Manter as cores da logo
+        economyChart.data.datasets[0].backgroundColor = ['#0066CC', '#00CC99'];
+        economyChart.data.datasets[0].borderColor = ['#0052A3', '#009977'];
+        
+        // Atualizar dados
+        const consumoIdealPercent = Math.round((economyData.consumoIdeal / economyData.consumoAtual) * 100);
+        economyChart.data.datasets[0].data = [100, consumoIdealPercent];
+        economyChart.update();
     }
     
-    function updateCharts() {
-        if (economyChart && economyData.consumoAtual > 0) {
-            const consumoIdealPercent = Math.round((economyData.consumoIdeal / economyData.consumoAtual) * 100);
-            economyChart.data.datasets[0].data = [100, consumoIdealPercent];
-            economyChart.update();
-        }
+    if (comparisonChart) {
+        // Manter cores da logo
+        comparisonChart.data.datasets[0].borderColor = '#0066CC';
+        comparisonChart.data.datasets[0].backgroundColor = 'rgba(0, 102, 204, 0.1)';
+        comparisonChart.data.datasets[1].borderColor = '#00CC99';
+        comparisonChart.data.datasets[1].backgroundColor = 'rgba(0, 204, 153, 0.1)';
         
-        if (comparisonChart && economyData.mensal > 0) {
-            const baseValue = calcularCustoAtualBase();
-            const reducaoPercentual = economyData.porcentagem / 100;
-            
-            const dadosAntes = Array(12).fill(0).map((_, i) => 
-                Math.round(baseValue * (1 + (i * 0.02)))
-            );
-            
-            const dadosDepois = dadosAntes.map((v, i) => 
-                i < 2 ? v : Math.round(v * (1 - reducaoPercentual))
-            );
-            
-            comparisonChart.data.datasets[0].data = dadosAntes;
-            comparisonChart.data.datasets[1].data = dadosDepois;
-            comparisonChart.update();
-        }
+        // Atualizar dados
+        const baseValue = calcularCustoAtualBase();
+        const reducaoPercentual = economyData.porcentagem / 100;
+        
+        const dadosAntes = Array(12).fill(0).map((_, i) => 
+            Math.round(baseValue * (1 + (i * 0.02)))
+        );
+        
+        const dadosDepois = dadosAntes.map((v, i) => 
+            i < 2 ? v : Math.round(v * (1 - reducaoPercentual))
+        );
+        
+        comparisonChart.data.datasets[0].data = dadosAntes;
+        comparisonChart.data.datasets[1].data = dadosDepois;
+        comparisonChart.update();
     }
+}
     
     function calcularCustoAtualBase() {
         const tarifa = parseFloat(calculationData.tarifaEnergia) || 0.95;
