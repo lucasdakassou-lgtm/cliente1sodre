@@ -301,6 +301,8 @@
     color: var(--primary);
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
+    position: relative;
+    left: 20px;
 }
 
 .timeline-content h4 {
