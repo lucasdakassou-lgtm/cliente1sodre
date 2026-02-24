@@ -697,3 +697,39 @@ setTimeout(() => {
         console.error('Botão não encontrado!');
     }
 }, 1000);
+// ===== FAQ ACCORDION =====
+document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', function() {
+            // Verifica se este item já está ativo
+            const isActive = item.classList.contains('active');
+            
+            // Fecha todos os outros itens
+            faqItems.forEach(otherItem => {
+                otherItem.classList.remove('active');
+            });
+            
+            // Se não estava ativo, abre este
+            if (!isActive) {
+                item.classList.add('active');
+            }
+            
+            // Scroll suave para o item (opcional)
+            setTimeout(() => {
+                item.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest'
+                });
+            }, 100);
+        });
+    });
+    
+    // Abre o primeiro item por padrão (opcional)
+    if (faqItems.length > 0) {
+        faqItems[0].classList.add('active');
+    }
+});
