@@ -75,25 +75,9 @@
 </section>
 
 <!-- RESULTADO - CORES AJUSTADAS -->
-<div class="result-card economy" style="border-color: #0066CC;">
-    <div class="result-value" id="economiaMensal" style="color: #0066CC;">R$ 167</div>
-    <div class="result-label">Economia mensal</div>
-</div>
-
-<div class="result-card total" style="border-color: #00CC99;">
-    <div class="result-value" id="economiaAnual" style="color: #00CC99;">R$ 2.004</div>
-    <div class="result-label">Economia anual</div>
-</div>
-
-<!-- BARRA DE PORCENTAGEM COM GRADIENTE -->
-<div class="percentage-bar">
-    <div class="percentage-fill" id="percentageFill" style="background: linear-gradient(90deg, #0066CC, #00CC99); width: 30%"></div>
-</div>
 
 <!-- BOTÃO PRINCIPAL COM GRADIENTE DA LOGO -->
-<button class="btn btn-primary btn-lg" id="btnAgendar" style="background: linear-gradient(135deg, #0066CC, #00CC99);">
-    <i class="fas fa-calendar-check"></i> Agendar Diagnóstico Gratuito
-</button>
+
 
     <!-- CALCULADORA INTERATIVA -->
     <section class="calculator-section" id="calculadora">
@@ -103,42 +87,86 @@
             
             <div class="calculator-container">
                 <div class="calculator-form">
-                    <div class="form-step active" id="step1">
-                        <h3><span class="step-number">1</span> Seus Equipamentos</h3>
-                        
-                        <div class="form-group">
-                            <label class="form-label">
-                                <i class="fas fa-snowflake"></i>
-                                Quantos aparelhos de ar condicionado você tem?
-                            </label>
-                            <div class="input-with-button">
-                                <button class="btn-counter" data-action="decrease" data-target="aparelhos">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <input type="number" id="aparelhos" min="1" max="20" value="2" class="form-control">
-                                <button class="btn-counter" data-action="increase" data-target="aparelhos">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="form-label">
-                                <i class="fas fa-thermometer-half"></i>
-                                Tipo de equipamento:
-                            </label>
-                            <select id="tipoEquipamento" class="form-control">
-                                <option value="9000">Split 9.000 BTUs (Pequeno)</option>
-                                <option value="12000" selected>Split 12.000 BTUs (Médio)</option>
-                                <option value="18000">Split 18.000 BTUs (Grande)</option>
-                                <option value="24000">Split 24.000 BTUs (XL)</option>
-                                <option value="30000">Split 30.000+ BTUs (Comercial)</option>
-                            </select>
-                            <div class="input-hint">
-                                <small>Escolha o que mais se parece com seu equipamento</small>
-                            </div>
-                        </div>
-                        
+                    <!-- STEP 1 - EQUIPAMENTOS -->
+<div class="form-step active" id="step1">
+    <h3>
+        <span class="step-number">1</span> 
+        Seus Equipamentos
+    </h3>
+    
+    <!-- Pergunta 1 -->
+    <div class="form-group">
+        <label class="form-label">
+            <i class="fas fa-snowflake"></i>
+            Quantos aparelhos de ar condicionado você tem?
+        </label>
+        <div class="input-with-button">
+            <button class="btn-counter" data-action="decrease" data-target="aparelhos">
+                <i class="fas fa-minus"></i>
+            </button>
+            <input type="number" id="aparelhos" min="1" max="20" value="2" class="form-control">
+            <button class="btn-counter" data-action="increase" data-target="aparelhos">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Pergunta 2 -->
+    <div class="form-group">
+        <label class="form-label">
+            <i class="fas fa-thermometer-half"></i>
+            Tipo de equipamento:
+        </label>
+        <select id="tipoEquipamento" class="form-control">
+            <option value="9000">Split 9.000 BTUs (Pequeno)</option>
+            <option value="12000" selected>Split 12.000 BTUs (Médio)</option>
+            <option value="18000">Split 18.000 BTUs (Grande)</option>
+            <option value="24000">Split 24.000 BTUs (XL)</option>
+            <option value="30000">Split 30.000+ BTUs (Comercial)</option>
+        </select>
+        <div class="input-hint">
+            <small>Escolha o que mais se parece com seu equipamento</small>
+        </div>
+    </div>
+    
+    <!-- ===== PAINEL DE AJUDA (SOME AO CALCULAR) ===== -->
+    <div class="help-panel" id="helpPanel">
+        <div class="help-header">
+            <i class="fas fa-lightbulb"></i>
+            <span>Exemplo prático</span>
+        </div>
+        
+        <div class="help-example">
+            <div class="example-item">
+                <i class="fas fa-home"></i>
+                <div>
+                    <strong>Casa da Maria</strong>
+                    <p>2 splits 12.000 BTUs • 8h/dia</p>
+                </div>
+            </div>
+            
+            <div class="example-result">
+                <div class="result-badge">
+                    <span>Economia mensal</span>
+                    <strong>R$ 167</strong>
+                </div>
+                <div class="result-badge">
+                    <span>Retorno</span>
+                    <strong>2 meses</strong>
+                </div>
+            </div>
+            
+            <div class="example-note">
+                <i class="fas fa-check-circle"></i>
+                <span>Resultado real de um cliente</span>
+            </div>
+        </div>
+        
+        
+    
+    <!-- Botão Continuar -->
+    
+</div>
                         <button class="btn btn-primary btn-next" data-next="step2">
                             Continuar <i class="fas fa-arrow-right"></i>
                         </button>
@@ -629,53 +657,58 @@
     </section>
 
     <!-- FAQ -->
-    <section class="faq-section">
-        <div class="container">
-            <h2 class="section-title">Perguntas Frequentes sobre Economia</h2>
+   <!-- FAQ SECTION -->
+<section class="faq-section">
+    <div class="container">
+        <h2 class="section-title">Perguntas Frequentes sobre Economia</h2>
+        
+        <div class="faq-container">
+            <!-- Item 1 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Como é calculada essa economia?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Usamos dados técnicos oficiais: consumo por BTU do equipamento (ex: 12k BTUs = 1.1kW/h), tarifas de energia por região, eficiência reduzida por falta de manutenção e horas de uso. A economia varia de 15% a 40% dependendo das condições do equipamento.</p>
+                </div>
+            </div>
             
-            <div class="faq-container">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Como é calculada essa economia?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Usamos dados técnicos oficiais: consumo por BTU do equipamento (ex: 12k BTUs = 1.1kW/h), tarifas de energia por região, eficiência reduzida por falta de manutenção e horas de uso. A economia varia de 15% a 40% dependendo das condições do equipamento.</p>
-                    </div>
+            <!-- Item 2 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>A economia é garantida?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Sim! Em 98% dos casos há redução comprovada. Oferecemos <strong>garantia de satisfação</strong>: se sua economia for menor que 15% nos primeiros 3 meses, devolvemos a diferença. Baseado em dados da ANEEL, equipamento sujo gasta 20-40% mais energia.</p>
                 </div>
-                
-                <div class="faq-item">
-                    <button class="faq-question">
-                        A economia é garantida?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Sim! Em 98% dos casos há redução comprovada. Oferecemos <strong>garantia de satisfação</strong>: se sua economia for menor que 15% nos primeiros 3 meses, devolvemos a diferença. Baseado em dados da ANEEL, equipamento sujo gasta 20-40% mais energia.</p>
-                    </div>
+            </div>
+            
+            <!-- Item 3 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Em quanto tempo vejo resultados na conta?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>A economia começa <strong>imediatamente após o serviço</strong> e já aparece na <strong>próxima conta de luz</strong>. Muitos clientes relatam redução de 20-30% já no primeiro mês. O retorno do investimento (custo da manutenção) ocorre em 2-3 meses em média.</p>
                 </div>
-                
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Em quanto tempo vejo resultados na conta?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>A economia começa <strong>imediatamente após o serviço</strong> e já aparece na <strong>próxima conta de luz</strong>. Muitos clientes relatam redução de 20-30% já no primeiro mês. O retorno do investimento (custo da manutenção) ocorre em 2-3 meses em média.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <button class="faq-question">
-                        E se meu ar já for eficiente?
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Mesmo ar condicionados novos perdem eficiência com o tempo. Filtros sujos aumentam consumo em 15%, falta de gás refrigerante em 25%, serpentinas sujas em 30%. Manutenção preventiva mantém a eficiência original e previne gastos maiores no futuro.</p>
-                    </div>
+            </div>
+            
+            <!-- Item 4 -->
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>E se meu ar já for eficiente?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Mesmo ar condicionados novos perdem eficiência com o tempo. Filtros sujos aumentam consumo em 15%, falta de gás refrigerante em 25%, serpentinas sujas em 30%. Manutenção preventiva mantém a eficiência original e previne gastos maiores no futuro.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- CTA FINAL -->
     <section class="final-cta">
