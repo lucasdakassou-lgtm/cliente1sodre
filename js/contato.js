@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // 🔵 ABRIR WHATSAPP DO FELIPE
                 setTimeout(() => {
-                    window.open(`https://wa.me/5511999999999?text=${encodeURIComponent(textoWhatsApp)}`, '_blank');
+                    window.open(`https://wa.me/5511988327593?text=${encodeURIComponent(textoWhatsApp)}`, '_blank');
                 }, 500);
                 
                 // 🔵 SALVAR NO HISTÓRICO LOCAL (BACKUP)
