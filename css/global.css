@@ -245,7 +245,7 @@ main, section:first-of-type {
     background: var(--darker);
     color: white;
     padding: 4rem 0 2rem;
-    margin-top: 5rem;
+    margin-top: 1rem;
 }
 
 .footer-content {
