@@ -1,104 +1,183 @@
 // js/servicos.js
 
 document.addEventListener('DOMContentLoaded', function() {
-    
-    // ========== INICIALIZAR SWIPER ==========
-    const videoSwiper = new Swiper('.videoSwiper', {
-        // Optional parameters
-        direction: 'horizontal',
-        loop: true,
-        slidesPerView: 1,
-        spaceBetween: 30,
-        centeredSlides: true,
-        
-        // Breakpoints
-        breakpoints: {
-            768: {
-                slidesPerView: 2,
-                spaceBetween: 20
-            },
-            1024: {
-                slidesPerView: 3,
-                spaceBetween: 30
-            }
-        },
-        
-        // Navigation arrows
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        
-        // Pagination
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        
-        // Autoplay
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        
-        // Effect
-        effect: 'slide',
-        speed: 600
-    });
-    
-    // ========== CONTROLE DE VÍDEOS ==========
-    const videoPlaceholders = document.querySelectorAll('.video-placeholder');
-    
-    videoPlaceholders.forEach(placeholder => {
-        placeholder.addEventListener('click', function() {
-            const videoSide = this.closest('.video-side');
-            const videoCard = this.closest('.video-card');
-            const title = videoCard.querySelector('h4').textContent;
-            
-            // Simular abertura de vídeo (substituir por vídeos reais)
-            alert(`Abrindo vídeo: ${title}\n\nSubstitua este placeholder por:\n1. Vídeo do YouTube/Vimeo\n2. Modal com player\n3. Link para canal`);
-            
-            // Exemplo de como implementar modal:
-            /*
-            const modal = document.createElement('div');
-            modal.className = 'video-modal';
-            modal.innerHTML = `
-                <div class="modal-content">
-                    <iframe src="https://www.youtube.com/embed/VIDEO_ID" 
-                            frameborder="0" 
-                            allowfullscreen>
-                    </iframe>
-                </div>
-            `;
-            document.body.appendChild(modal);
-            */
+
+    // =====================================================
+    // NOVO: SLIDER ANTES/DEPOIS (igual seu modelo)
+    // =====================================================
+
+    function initBeforeAfterSlider(wrapper) {
+        const scroller = wrapper.querySelector('.scroller');
+        const after = wrapper.querySelector('.after');
+        let active = false;
+
+        function scrollIt(x) {
+            const rect = wrapper.getBoundingClientRect();
+            let transform = x - rect.left;
+            transform = Math.max(0, Math.min(transform, rect.width));
+
+            after.style.width = transform + "px";
+            scroller.style.left = transform + "px";
+        }
+
+        // estado inicial
+        scrollIt(wrapper.getBoundingClientRect().left + (wrapper.offsetWidth / 2));
+
+        scroller.addEventListener('mousedown', function() {
+            active = true;
+            scroller.classList.add('scrolling');
         });
-        
-        // Efeito hover
-        placeholder.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.05)';
-            this.querySelector('i').style.transform = 'scale(1.2)';
+
+        document.body.addEventListener('mouseup', function() {
+            active = false;
+            scroller.classList.remove('scrolling');
         });
-        
-        placeholder.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-            this.querySelector('i').style.transform = 'scale(1)';
+
+        document.body.addEventListener('mouseleave', function() {
+            active = false;
+            scroller.classList.remove('scrolling');
         });
-    });
-    
-    // ========== BOTÃO "VER TODOS OS VÍDEOS" ==========
-    const playAllBtn = document.querySelector('.play-all');
-    if (playAllBtn) {
-        playAllBtn.addEventListener('click', function() {
-            // Implemente aqui a lógica para mostrar todos os vídeos
-            alert('Funcionalidade "Ver Todos os Vídeos":\n\n1. Abrir galeria modal\n2. Lista completa de vídeos\n3. Playlist do YouTube');
-            
-            // Exemplo:
-            // openVideoGallery();
+
+        document.body.addEventListener('mousemove', function(e) {
+            if (!active) return;
+            scrollIt(e.pageX);
+        });
+
+        // touch
+        scroller.addEventListener('touchstart', function() {
+            active = true;
+            scroller.classList.add('scrolling');
+        });
+
+        document.body.addEventListener('touchend', function() {
+            active = false;
+            scroller.classList.remove('scrolling');
+        });
+
+        document.body.addEventListener('touchcancel', function() {
+            active = false;
+            scroller.classList.remove('scrolling');
+        });
+
+        document.body.addEventListener('touchmove', function(e) {
+            if (!active) return;
+            scrollIt(e.touches[0].pageX);
         });
     }
-    
-    // ========== ANIMAÇÃO DOS SERVIÇOS ==========
+
+    document.querySelectorAll('.ba-wrapper').forEach(initBeforeAfterSlider);
+
+    // =====================================================
+    // NOVO: CARROSSEL (track + dots) - reutilizável
+    // =====================================================
+
+    function setupTrackCarousel({
+        track,
+        prevBtn,
+        nextBtn,
+        dotsWrap,
+        slideSelector,
+        onSlideChange
+    }) {
+        const slides = Array.from(track.querySelectorAll(slideSelector));
+        let index = 0;
+
+        function renderDots() {
+            if (!dotsWrap) return;
+            dotsWrap.innerHTML = "";
+            slides.forEach((_, i) => {
+                const b = document.createElement('button');
+                b.className = (dotsWrap.id.includes('ba') ? 'ba-dot' : 'mp4-dot') + (i === index ? ' active' : '');
+                b.type = 'button';
+                b.setAttribute('aria-label', `Ir para o item ${i + 1}`);
+                b.addEventListener('click', () => goTo(i));
+                dotsWrap.appendChild(b);
+            });
+        }
+
+        function goTo(i) {
+            index = (i + slides.length) % slides.length;
+            track.style.transform = `translateX(-${index * 100}%)`;
+            renderDots();
+            if (typeof onSlideChange === 'function') onSlideChange(index);
+        }
+
+        function next() { goTo(index + 1); }
+        function prev() { goTo(index - 1); }
+
+        if (nextBtn) nextBtn.addEventListener('click', next);
+        if (prevBtn) prevBtn.addEventListener('click', prev);
+
+        // swipe mobile simples
+        let startX = 0;
+        let dragging = false;
+
+        track.addEventListener('touchstart', (e) => {
+            dragging = true;
+            startX = e.touches[0].clientX;
+        }, { passive: true });
+
+        track.addEventListener('touchend', (e) => {
+            if (!dragging) return;
+            dragging = false;
+            const endX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : startX;
+            const diff = endX - startX;
+            if (Math.abs(diff) > 40) {
+                if (diff < 0) next();
+                else prev();
+            }
+        }, { passive: true });
+
+        // inicia
+        goTo(0);
+    }
+
+    // Antes/Depois carousel
+    const baTrack = document.getElementById('baTrack');
+    const baPrev = document.querySelector('.ba-prev');
+    const baNext = document.querySelector('.ba-next');
+    const baDots = document.getElementById('baDots');
+
+    if (baTrack && baPrev && baNext) {
+        setupTrackCarousel({
+            track: baTrack,
+            prevBtn: baPrev,
+            nextBtn: baNext,
+            dotsWrap: baDots,
+            slideSelector: '.ba-slide',
+            onSlideChange: () => {
+                // re-inicializa slider quando muda slide (garante posições corretas)
+                document.querySelectorAll('.ba-wrapper').forEach(initBeforeAfterSlider);
+            }
+        });
+    }
+
+    // Vídeos carousel
+    const mp4Track = document.getElementById('mp4Track');
+    const mp4Prev = document.querySelector('.mp4-prev');
+    const mp4Next = document.querySelector('.mp4-next');
+    const mp4Dots = document.getElementById('mp4Dots');
+
+    if (mp4Track && mp4Prev && mp4Next) {
+        setupTrackCarousel({
+            track: mp4Track,
+            prevBtn: mp4Prev,
+            nextBtn: mp4Next,
+            dotsWrap: mp4Dots,
+            slideSelector: '.mp4-slide',
+            onSlideChange: () => {
+                // pausa vídeos ao trocar de slide
+                document.querySelectorAll('.mp4-video').forEach(v => {
+                    try { v.pause(); } catch (e) {}
+                });
+            }
+        });
+    }
+
+    // =====================================================
+    // MANTIDO: ANIMAÇÃO DOS SERVIÇOS (IntersectionObserver)
+    // =====================================================
+
     const serviceItems = document.querySelectorAll('.service-item');
     
     const observerOptions = {
@@ -119,25 +198,26 @@ document.addEventListener('DOMContentLoaded', function() {
     serviceItems.forEach(item => {
         serviceObserver.observe(item);
     });
-    
-    // ========== CALCULADORA RÁPIDA DE ECONOMIA ==========
+
+    // =====================================================
+    // MANTIDO: CALCULADORA RÁPIDA DE ECONOMIA (tooltip)
+    // =====================================================
+
     const serviceCards = document.querySelectorAll('.service-item');
-    
+
     serviceCards.forEach(card => {
         const benefits = card.querySelector('.service-benefits');
         if (benefits) {
             benefits.addEventListener('click', function() {
                 const serviceName = card.querySelector('h4').textContent;
                 let economy = 0;
-                
-                // Valores de economia estimada por serviço
+
                 if (serviceName.includes('Limpeza')) economy = 25;
                 if (serviceName.includes('Manutenção')) economy = 30;
                 if (serviceName.includes('Reparo')) economy = 40;
                 if (serviceName.includes('Instalação')) economy = 50;
-                
+
                 if (economy > 0) {
-                    // Criar tooltip de economia
                     const tooltip = document.createElement('div');
                     tooltip.className = 'economy-tooltip';
                     tooltip.innerHTML = `
@@ -157,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     `;
                     
                     card.appendChild(tooltip);
-                    
+
                     setTimeout(() => {
                         tooltip.remove();
                     }, 3000);
@@ -165,9 +245,11 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
-    
-    // ========== BOTÃO DE AGENDAMENTO DIRETO ==========
-    // Adicionar botão de agendamento rápido em cada serviço
+
+    // =====================================================
+    // MANTIDO: BOTÃO DE AGENDAMENTO DIRETO EM CADA SERVIÇO
+    // =====================================================
+
     serviceItems.forEach(item => {
         const btn = document.createElement('a');
         btn.className = 'btn btn-primary btn-sm';
@@ -181,9 +263,11 @@ document.addEventListener('DOMContentLoaded', function() {
             p.insertAdjacentElement('afterend', btn);
         }
     });
-    
-    // ========== ANIMAÇÃO DE ENTRADA ==========
-    // Adicionar classe para animação
+
+    // =====================================================
+    // MANTIDO: ANIMAÇÃO DE ENTRADA DO PROCESSO
+    // =====================================================
+
     document.querySelectorAll('.process-step').forEach((step, index) => {
         step.style.opacity = '0';
         step.style.transform = 'translateY(30px)';
@@ -196,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Função para abrir modal de vídeo (implementar se necessário)
+// Mantido (caso você use em outras partes no futuro)
 function openVideoModal(videoId, title) {
     const modal = document.createElement('div');
     modal.className = 'video-modal';
@@ -228,7 +312,7 @@ function openVideoModal(videoId, title) {
             ">&times;</button>
             <h3 style="color: white; margin-bottom: 1rem;">${title}</h3>
             <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-                <iframe src="https://www.youtube.com/embed/${videoId}" 
+                <iframe src="${videoId}" 
                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -240,7 +324,6 @@ function openVideoModal(videoId, title) {
     
     document.body.appendChild(modal);
     
-    // Fechar modal
     modal.querySelector('.close-modal').addEventListener('click', () => {
         modal.remove();
     });
