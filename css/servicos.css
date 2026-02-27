@@ -379,8 +379,10 @@
 .work-process {
    position: relative;
     border-radius: 20px;
-    padding: 4rem 2rem; /* DIMINUÍMOS AQUI */
-    margin: 3rem auto;  /* centraliza e dá respiro */
+    padding: 2rem 2rem; /* DIMINUÍMOS AQUI */
+    margin: 1rem auto;  /* centraliza e dá respiro */
+    height: 500px;
+    width: 1500px;
 }
 
 .work-process::before {
@@ -489,7 +491,7 @@
 /* CTA SERVIÇOS */
 .services-cta {
     padding: 6rem 0;
-    background: linear-gradient(135deg, var(--primary-dark), var(--darker));
+    background: linear-gradient(135deg, #0f2027, #203a43, #000000);
     color: white;
     text-align: center;
 }
@@ -515,6 +517,15 @@
     margin-bottom: 3rem;
     flex-wrap: wrap;
 }
+ .btn.btn-primary.btn-lg{
+   background: #035161;
+    color: white;
+}
+.btn.btn-primary.btn-lg:hover{
+background: #00B4D8;
+color: white;
+}
+
 
 .cta-info {
     display: flex;
@@ -859,4 +870,7 @@
         height: 52px;
     }
 }
+
+
+
 
