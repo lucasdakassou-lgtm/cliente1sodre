@@ -372,9 +372,49 @@
 }
 
 /* PROCESSO DE TRABALHO */
+/* ================================= */
+/* LED BORDA ANIMADA - COMO FUNCIONA */
+/* ================================= */
+
 .work-process {
-    padding: 6rem 0;
-    background: white;
+   position: relative;
+    border-radius: 20px;
+    padding: 4rem 2rem; /* DIMINUÍMOS AQUI */
+    margin: 3rem auto;  /* centraliza e dá respiro */
+}
+
+.work-process::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 3px; /* espessura da borda */
+    border-radius: 20px;
+
+    background: linear-gradient(
+        270deg,
+        #00c6ff,
+        #0072ff,
+        #001f5f,
+        #0072ff,
+        #00c6ff
+    );
+
+    background-size: 400% 400%;
+    animation: ledFlow 6s linear infinite;
+
+    -webkit-mask: 
+        linear-gradient(#000 0 0) content-box, 
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    pointer-events: none;
+}
+
+/* Animação do fluxo */
+@keyframes ledFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 400% 50%; }
 }
 
 .process-steps {
@@ -819,3 +859,4 @@
         height: 52px;
     }
 }
+
