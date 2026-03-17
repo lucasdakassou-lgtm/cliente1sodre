@@ -377,12 +377,14 @@
 /* ================================= */
 
 .work-process {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 2.5rem 2rem;
-    border: 2px solid #007aff;
-    border-radius: 24px;
+    position: relative;
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 1rem auto;
+    min-height: 500px;
+    width: min(100%, 1500px);
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .work-process .section-title {
@@ -938,11 +940,16 @@ color: white;
 }
 @media (max-width: 768px) {
     .work-process {
-        width: calc(100% - 24px);
-        margin: 1rem auto;
+        width: calc(100% - 16px);
+        min-height: auto;
         padding: 1.5rem 0.75rem;
-        border-radius: 18px;
+        border-radius: 16px;
     }
+
+    .work-process::before {
+        border-radius: 16px;
+    }
+
 
     .work-process .section-title {
         font-size: 1.9rem;
