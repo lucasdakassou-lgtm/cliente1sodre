@@ -55,6 +55,9 @@
     gap: 1rem;
     flex-wrap: wrap;
     margin-bottom: 2rem;
+    position: relative;
+    left: 25px;
+    justify-content: center;
 }
 
 .badge {
@@ -78,6 +81,9 @@
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    position: relative;
+    bottom: 10px;
+
 }
 
 /* CARD DE PERFIL DO FELIPE */
@@ -833,6 +839,11 @@
         width: 100%;
         max-width: 300px;
     }
+    .hero-badges {
+        justify-content: center;
+        position: relative;
+        left: 10px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -842,6 +853,8 @@
     
     .hero-badges {
         justify-content: center;
+        position: relative;
+        left: 10px;
     }
     
     .badge {
