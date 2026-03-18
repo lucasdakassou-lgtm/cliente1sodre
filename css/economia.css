@@ -276,6 +276,7 @@
     padding: 3rem;
     box-shadow: var(--shadow-lg);
     border: 2px solid var(--gray-light);
+   
 }
 
 .form-step {
@@ -640,6 +641,8 @@
     overflow: hidden;
     margin-bottom: 1rem;
 }
+
+
 
 .percentage-fill {
     height: 100%;
