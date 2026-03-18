@@ -6,34 +6,25 @@
     <title>Serviços - ARTECH | Limpeza e Manutenção de Ar Condicionado</title>
     <meta name="description" content="Serviços especializados em limpeza, manutenção e reparo de ar condicionado. Resultados antes/depois e vídeos reais do serviço.">
     
-    <!-- CSS -->
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/components.css">
     <link rel="stylesheet" href="../css/servicos.css">
     
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Swiper CSS (Carrossel) -->
-    <!-- Pode remover depois se quiser (não é mais necessário), mas mantive para não mexer no restante do seu HTML -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 <body>
-    <!-- HEADER (Mesmo de index.html) -->
     <header class="header">
         <div class="container">
             <nav class="navbar">
-                 <a href="index.html">
-              <img src="../assets/images/logo.svg" alt="ARTECH Energia" class="logo-img">
+                <a href="../index.html">
+                    <img src="../assets/images/logo.svg" alt="ARTECH Energia" class="logo-img">
                 </a>
-                
+
                 <button class="menu-toggle" id="menuToggle" aria-label="Menu">
                     <i class="fas fa-bars"></i>
                 </button>
-                
+
                 <ul class="nav-links" id="navLinks">
                     <li><a href="../index.html">Home</a></li>
                     <li><a href="sobre.html">Sobre Nós</a></li>
@@ -46,7 +37,6 @@
         </div>
     </header>
 
-    <!-- HERO SERVIÇOS -->
     <section class="services-hero">
         <div class="container">
             <div class="hero-content">
@@ -59,7 +49,6 @@
         </div>
     </section>
 
-    <!-- SERVIÇOS DETALHADOS -->
     <section class="services-details" id="servicos">
         <div class="container">
             <h2 class="section-title">Nossos Serviços</h2>
@@ -187,209 +176,210 @@
         </div>
     </section>
 
-    <!-- ============================= -->
-    <!-- ANTES/DEPOIS (IMAGENS) + CARROSSEL -->
-    <!-- ============================= -->
-    <section class="before-after-section">
-        <div class="container">
-            <h2 class="section-title">Transformação Real</h2>
-            <p class="section-subtitle">Veja a diferença que nossa limpeza faz</p>
+    <!-- ===================================================== -->
+<!-- TRANSFORMAÇÃO REAL -->
+<!-- ===================================================== -->
+<section class="before-after-section fade-in">
+    <div class="container">
+        <h2 class="section-title">Transformação Real</h2>
+        <p class="section-subtitle">Veja a diferença que nossa limpeza faz</p>
 
-            <div class="ba-carousel">
+        <div class="ba-carousel">
+            <button class="ba-nav ba-prev" aria-label="Slide anterior">‹</button>
+
+            <div class="ba-viewport">
                 <div class="ba-track" id="baTrack">
 
-                    <!-- SLIDE 1 -->
                     <article class="ba-slide">
-                        <div class="ba-top">
-                            <span class="ba-badge before">Antes</span>
-                            <span class="ba-badge after">Depois</span>
-                        </div>
+                        <div class="ba-card">
+                            <div class="ba-top">
+                                <span class="ba-badge before">Antes</span>
+                                <span class="ba-badge after">Depois</span>
+                            </div>
 
-                        <div class="ba-wrapper">
-                            <div class="before">
-                                <img class="content-image" src="/assets/images/antes-split.jpg" draggable="false" alt="Antes - Limpeza Split">
-                            </div>
-                            <div class="after">
-                                <img class="content-image" src="/assets/images/depois-split.jpg" draggable="false" alt="Depois - Limpeza Split">
-                            </div>
-                            <div class="scroller" aria-label="Arraste para comparar">
-                                <svg class="scroller__thumb" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-                                    <polygon points="0 50 37 68 37 32 0 50" style="fill:#fff"/>
-                                    <polygon points="100 50 64 32 64 68 100 50" style="fill:#fff"/>
-                                </svg>
-                            </div>
-                        </div>
+                            <div class="ba-wrapper fixed">
+                                <div class="ba-half">
+                                    <img src="../assets/images/antes-split.jpg" alt="Antes - Limpeza Split">
+                                </div>
 
-                        <div class="ba-info">
-                            <h4>Limpeza Completa Split</h4>
-                            <p>Comparação real do filtro e partes internas antes e depois do serviço.</p>
+                                <div class="ba-divider"></div>
+
+                                <div class="ba-half">
+                                    <img src="../assets/images/depois-split.jpg" alt="Depois - Limpeza Split">
+                                </div>
+                            </div>
+
+                            <div class="ba-info">
+                                <h4>Limpeza Completa Split</h4>
+                                <p>Comparação real do filtro e partes internas antes e depois do serviço.</p>
+                            </div>
                         </div>
                     </article>
 
-                    <!-- SLIDE 2 -->
                     <article class="ba-slide">
-                        <div class="ba-top">
-                            <span class="ba-badge before">Antes</span>
-                            <span class="ba-badge after">Depois</span>
-                        </div>
+                        <div class="ba-card">
+                            <div class="ba-top">
+                                <span class="ba-badge before">Antes</span>
+                                <span class="ba-badge after">Depois</span>
+                            </div>
 
-                        <div class="ba-wrapper">
-                            <div class="before">
-                                <img class="content-image" src="/assets/images/antes-duto.jpg" draggable="false" alt="Antes - Dutos">
-                            </div>
-                            <div class="after">
-                                <img class="content-image" src="/assets/images/depois-duto.jpg" draggable="false" alt="Depois - Dutos">
-                            </div>
-                            <div class="scroller" aria-label="Arraste para comparar">
-                                <svg class="scroller__thumb" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-                                    <polygon points="0 50 37 68 37 32 0 50" style="fill:#fff"/>
-                                    <polygon points="100 50 64 32 64 68 100 50" style="fill:#fff"/>
-                                </svg>
-                            </div>
-                        </div>
+                            <div class="ba-wrapper fixed">
+                                <div class="ba-half">
+                                    <img src="../assets/images/antes-duto.jpg" alt="Antes - Dutos">
+                                </div>
 
-                        <div class="ba-info">
-                            <h4>Limpeza de Dutos</h4>
-                            <p>Remoção de poeira e contaminantes em sistema central.</p>
+                                <div class="ba-divider"></div>
+
+                                <div class="ba-half">
+                                    <img src="../assets/images/depois-duto.jpg" alt="Depois - Dutos">
+                                </div>
+                            </div>
+
+                            <div class="ba-info">
+                                <h4>Limpeza de Dutos</h4>
+                                <p>Remoção de poeira e contaminantes no sistema de circulação.</p>
+                            </div>
                         </div>
                     </article>
 
-                    <!-- SLIDE 3 -->
                     <article class="ba-slide">
-                        <div class="ba-top">
-                            <span class="ba-badge before">Antes</span>
-                            <span class="ba-badge after">Depois</span>
-                        </div>
+                        <div class="ba-card">
+                            <div class="ba-top">
+                                <span class="ba-badge before">Antes</span>
+                                <span class="ba-badge after">Depois</span>
+                            </div>
 
-                        <div class="ba-wrapper">
-                            <div class="before">
-                                <img class="content-image" src="/assets/images/antes-evaporador.jpg" draggable="false" alt="Antes - Evaporador">
-                            </div>
-                            <div class="after">
-                                <img class="content-image" src="/assets/images/depois-evaporador.jpg" draggable="false" alt="Depois - Evaporador">
-                            </div>
-                            <div class="scroller" aria-label="Arraste para comparar">
-                                <svg class="scroller__thumb" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-                                    <polygon points="0 50 37 68 37 32 0 50" style="fill:#fff"/>
-                                    <polygon points="100 50 64 32 64 68 100 50" style="fill:#fff"/>
-                                </svg>
-                            </div>
-                        </div>
+                            <div class="ba-wrapper fixed">
+                                <div class="ba-half">
+                                    <img src="../assets/images/antes-evaporador.jpg" alt="Antes - Evaporador">
+                                </div>
 
-                        <div class="ba-info">
-                            <h4>Limpeza Interna</h4>
-                            <p>Serpentina/evaporador limpo após higienização completa.</p>
+                                <div class="ba-divider"></div>
+
+                                <div class="ba-half">
+                                    <img src="../assets/images/depois-evaporador.jpg" alt="Depois - Evaporador">
+                                </div>
+                            </div>
+
+                            <div class="ba-info">
+                                <h4>Limpeza Interna</h4>
+                                <p>Serpentina e evaporador limpos após higienização completa.</p>
+                            </div>
                         </div>
                     </article>
 
-                    <!-- SLIDE 4 -->
                     <article class="ba-slide">
-                        <div class="ba-top">
-                            <span class="ba-badge before">Antes</span>
-                            <span class="ba-badge after">Depois</span>
-                        </div>
+                        <div class="ba-card">
+                            <div class="ba-top">
+                                <span class="ba-badge before">Antes</span>
+                                <span class="ba-badge after">Depois</span>
+                            </div>
 
-                        <div class="ba-wrapper">
-                            <div class="before">
-                                <img class="content-image" src="/assets/images/antes-condensadora.jpg" draggable="false" alt="Antes - Condensadora">
-                            </div>
-                            <div class="after">
-                                <img class="content-image" src="/assets/images/depois-condensadora.jpg" draggable="false" alt="Depois - Condensadora">
-                            </div>
-                            <div class="scroller" aria-label="Arraste para comparar">
-                                <svg class="scroller__thumb" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-                                    <polygon points="0 50 37 68 37 32 0 50" style="fill:#fff"/>
-                                    <polygon points="100 50 64 32 64 68 100 50" style="fill:#fff"/>
-                                </svg>
-                            </div>
-                        </div>
+                            <div class="ba-wrapper fixed">
+                                <div class="ba-half">
+                                    <img src="../assets/images/antes-condensadora.jpg" alt="Antes - Condensadora">
+                                </div>
 
-                        <div class="ba-info">
-                            <h4>Limpeza Externa</h4>
-                            <p>Unidade externa desobstruída para melhor ventilação.</p>
+                                <div class="ba-divider"></div>
+
+                                <div class="ba-half">
+                                    <img src="../assets/images/depois-condensadora.jpg" alt="Depois - Condensadora">
+                                </div>
+                            </div>
+
+                            <div class="ba-info">
+                                <h4>Limpeza Externa</h4>
+                                <p>Unidade condensadora desobstruída para melhor ventilação.</p>
+                            </div>
                         </div>
                     </article>
 
                 </div>
-
-                <div class="ba-nav">
-                    <button class="ba-prev" type="button" aria-label="Anterior">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="ba-next" type="button" aria-label="Próximo">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-
-                <div class="ba-dots" id="baDots" aria-label="Paginação Antes/Depois"></div>
             </div>
+
+            <button class="ba-nav ba-next" aria-label="Próximo slide">›</button>
         </div>
-    </section>
 
-    <!-- ============================= -->
-    <!-- VÍDEOS REAIS (MP4) + CARROSSEL -->
-    <!-- ============================= -->
-    <section class="video-section">
-        <div class="container">
-            <h2 class="section-title">Vídeos dos Serviços</h2>
-            <p class="section-subtitle">Execução profissional em campo</p>
+        <div class="ba-dots" id="baDots"></div>
+    </div>
+</section>
 
-            <div class="mp4-carousel">
+<!-- ===================================================== -->
+<!-- VÍDEOS -->
+<!-- ===================================================== -->
+<section class="video-section fade-in">
+    <div class="container">
+        <h2 class="section-title">Vídeos Reais</h2>
+        <p class="section-subtitle">Veja nossos serviços em ação</p>
+
+        <div class="mp4-carousel">
+            <button class="mp4-nav mp4-prev" aria-label="Vídeo anterior">‹</button>
+
+            <div class="mp4-viewport">
                 <div class="mp4-track" id="mp4Track">
 
                     <article class="mp4-slide">
-                        <video class="mp4-video" controls preload="metadata">
-                            <source src="/assets/videos/limpeza.mp4" type="video/mp4">
-                            Seu navegador não suporta vídeo.
-                        </video>
-                        <h4>Limpeza Completa</h4>
-                        <p>Etapas do serviço com foco em higiene e performance.</p>
+                        <div class="mp4-card">
+                            <video class="mp4-video" controls playsinline preload="metadata">
+                                <source src="../assets/videos/limpeza.mp4" type="video/mp4">
+                                Seu navegador não suporta vídeo.
+                            </video>
+                            <div class="mp4-info">
+                                <h4>Limpeza Completa</h4>
+                                <p>Execução profissional com desmontagem e higienização.</p>
+                            </div>
+                        </div>
                     </article>
 
                     <article class="mp4-slide">
-                        <video class="mp4-video" controls preload="metadata">
-                            <source src="/assets/videos/manutencao.mp4" type="video/mp4">
-                            Seu navegador não suporta vídeo.
-                        </video>
-                        <h4>Manutenção Preventiva</h4>
-                        <p>Check-list técnico para evitar falhas e reduzir consumo.</p>
+                        <div class="mp4-card">
+                            <video class="mp4-video" controls playsinline preload="metadata">
+                                <source src="../assets/videos/manutencao.mp4" type="video/mp4">
+                                Seu navegador não suporta vídeo.
+                            </video>
+                            <div class="mp4-info">
+                                <h4>Manutenção Preventiva</h4>
+                                <p>Verificação técnica para evitar falhas e aumentar a vida útil.</p>
+                            </div>
+                        </div>
                     </article>
 
                     <article class="mp4-slide">
-                        <video class="mp4-video" controls preload="metadata">
-                            <source src="/assets/videos/reparo.mp4" type="video/mp4">
-                            Seu navegador não suporta vídeo.
-                        </video>
-                        <h4>Reparo Técnico</h4>
-                        <p>Diagnóstico e correção com segurança e garantia.</p>
+                        <div class="mp4-card">
+                            <video class="mp4-video" controls playsinline preload="metadata">
+                                <source src="../assets/videos/reparo.mp4" type="video/mp4">
+                                Seu navegador não suporta vídeo.
+                            </video>
+                            <div class="mp4-info">
+                                <h4>Reparo Técnico</h4>
+                                <p>Correção de falhas com diagnóstico e solução especializada.</p>
+                            </div>
+                        </div>
                     </article>
 
                     <article class="mp4-slide">
-                        <video class="mp4-video" controls preload="metadata">
-                            <source src="/assets/videos/instalacao.mp4" type="video/mp4">
-                            Seu navegador não suporta vídeo.
-                        </video>
-                        <h4>Instalação Profissional</h4>
-                        <p>Instalação correta (BTU, elétrica, drenagem e teste final).</p>
+                        <div class="mp4-card">
+                            <video class="mp4-video" controls playsinline preload="metadata">
+                                <source src="../assets/videos/instalacao.mp4" type="video/mp4">
+                                Seu navegador não suporta vídeo.
+                            </video>
+                            <div class="mp4-info">
+                                <h4>Instalação</h4>
+                                <p>Serviço de instalação com acabamento e segurança.</p>
+                            </div>
+                        </div>
                     </article>
 
                 </div>
-
-                <div class="mp4-nav">
-                    <button class="mp4-prev" type="button" aria-label="Anterior">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="mp4-next" type="button" aria-label="Próximo">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
-
-                <div class="mp4-dots" id="mp4Dots" aria-label="Paginação Vídeos"></div>
             </div>
-        </div>
-    </section>
 
-    <!-- PROCESSO DE TRABALHO -->
+            <button class="mp4-nav mp4-next" aria-label="Próximo vídeo">›</button>
+        </div>
+
+        <div class="mp4-dots" id="mp4Dots"></div>
+    </div>
+</section>
+
     <section class="work-process">
         <div class="container">
             <h2 class="section-title">Como Funciona</h2>
@@ -434,7 +424,6 @@
         </div>
     </section>
 
-    <!-- CTA SERVIÇOS -->
     <section class="services-cta">
         <div class="container">
             <div class="cta-content">
@@ -468,7 +457,6 @@
         </div>
     </section>
 
-    <!-- FOOTER (Mesmo de index.html) -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -513,14 +501,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <!-- Swiper JS -->
-    <!-- Pode remover depois se quiser (não é mais necessário), mas mantive para não mexer no resto -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    
-    <!-- Nossos scripts -->
     <script src="../js/global.js"></script>
     <script src="../js/servicos.js"></script>
 </body>
 </html>
-
