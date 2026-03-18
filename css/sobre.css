@@ -89,6 +89,7 @@
 /* CARD DE PERFIL DO FELIPE */
 .hero-profile {
     position: relative;
+    top: 10px;
 }
 
 .profile-card {
