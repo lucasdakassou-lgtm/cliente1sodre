@@ -178,7 +178,10 @@
   margin-top: 3rem;
   flex-wrap: wrap;
 }
+.btn.btn-primary.btn-lg{
+  background-color: black;
 
+}
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2.8rem;
